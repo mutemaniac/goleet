@@ -11,9 +11,6 @@ func threeSum(nums []int) [][]int {
 		if nums[i] > 0 {
 			break
 		}
-		if i > 0 && nums[i] == nums[i-1] {
-			continue
-		}
 		lo := i + 1
 		hi := numsLen - 1
 		sum := 0 - nums[i]
@@ -43,6 +40,13 @@ func threeSum(nums []int) [][]int {
 				hi--
 			} else {
 				lo++
+			}
+		}
+		for (i + 1) < numsLen {
+			if nums[i] == nums[i+1] {
+				i++
+			} else {
+				break
 			}
 		}
 	}
